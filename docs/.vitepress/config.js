@@ -2,8 +2,7 @@ module.exports = {
   // 网站标题
   title: 'dream',
   // 网站描述
-  description: '汤圆不太甜',
-  base: 'blog-vitepress',
+  description: '小乖乖',
   // 打包目录
   dest: './dist',
   head: [
