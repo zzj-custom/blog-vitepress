@@ -1,0 +1,27 @@
+{
+  "name": "blog-vitepress",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vitepress dev docs --port 9527",
+    "build": "vitepress build docs",
+    "serve": "vitepress serve docs --port 9527"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zzj-custom/blog-vitepress.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zzj-custom/blog-vitepress/issues"
+  },
+  "homepage": "https://github.com/zzj-custom/blog-vitepress#readme",
+  "devDependencies": {
+    "vitepress": "^0.22.3"
+  },
+  "dependencies": {
+    "vuepress-plugin-code-copy": "^1.0.6"
+  }
+}
