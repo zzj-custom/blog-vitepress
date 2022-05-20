@@ -12,13 +12,12 @@ layout: tag
 >&emsp;`createStub($type)` 和 `createMock($type)` 方法直接返回指定类型（接口或类）的测试替身对象实例。此测试替身的创建使用了最佳实践默认方案。原始类的 `__construct()` 和 `__clone()` 方法不会执行，且不对传递给测试替身的方法的参数进行克隆。如果这些默认值非你所需，可以用 `getMockBuilder($type)` 方法并使用流畅式接口来定制测试替身的生成过程。
 >&emsp;在默认情况下，原版类的所有方法都会被替换为返回 `null` 的伪实现（其中不会调用原版方法）。使用诸如 `will($this->returnValue())` 之类的方法可以对这些伪实现在被调用时应当返回什么值做出配置。
 
-一丶 `Stubs(桩件，替换掉被测试系统所依赖的组件)`
-
----
+## 一丶`Stubs(桩件，替换掉被测试系统所依赖的组件)`
 
 > 示例： 想要上桩的类
 
 ```php
+
 <?php
 declare(strict_types=1);
 
@@ -40,9 +39,10 @@ class PlatformBarService
 }
 ```
 
-> 示例：对sendMessage方法进行上桩
+> 示例：对`sendMessage`方法进行上桩
 
 ```php
+
 <?php
 
 namespace HyperfTest\Domain\Logic\Order\Message;
@@ -174,20 +174,18 @@ class OrderMessageTest extends TestCase
 
 ```
 
-> 说明：添加`@test`可以表示这个方法是一个测试方法，添加`@depends serialOrderData`，表示改测试类的传参依赖于depends后面方法名的返回结果
+> 说明：添加`@test`可以表示这个方法是一个测试方法，添加`@depends serialOrderData`，表示改测试类的传参依赖于`depends`后面方法名的返回结果
 
 ---
 
-二丶 `Mock Object (仿件对象)`
+## 二丶 `Mock Object (仿件对象)`
 
----
 
-> &emsp;将对象替换为能验证预期行为（例如断言某个方法必会被调用）的测试替身的实践方法称为模仿（mocking）。
-> &emsp;可以用仿件对象（mock object）“作为观察点来核实被测试系统在测试中的间接输出。通常，仿件对象还需要包括桩件的功能，因为如果测试尚未失败则仿件对象需要向被测系统返回一些值，但是其重点还是在对间接输出的核实上。因此，仿件对象远不止是桩件加断言，它是以一种从根本上完全不同的方式来使用的”（Gerard Meszaros）。
+> &emsp;将对象替换为能验证预期行为（例如断言某个方法必会被调用）的测试替身的实践方法称为模仿（`mocking`）。
+> &emsp;可以用仿件对象（`mock object`）“作为观察点来核实被测试系统在测试中的间接输出。通常，仿件对象还需要包括桩件的功能，因为如果测试尚未失败则仿件对象需要向被测系统返回一些值，但是其重点还是在对间接输出的核实上。因此，仿件对象远不止是桩件加断言，它是以一种从根本上完全不同的方式来使用的”（`Gerard Meszaros`）。
 
----
+### `匹配器`
 
-`匹配器`
 
 |匹配器|含义|
 |:---:|:---:|
@@ -198,21 +196,21 @@ class OrderMessageTest extends TestCase
 |exactly(int `$count`)|方法执行恰好 `$count` 次时匹配成功。|
 |at(int `$index`)|方法是第 `$index` 个执行的方法时匹配成功。|
 
-
+---
 
 > 如一开始提到的，如果 `createStub()` 和 `createMock()` 方法在生成测试替身时所使用的默认值不符合你的要求，则可以通过 `getMockBuilder($type)` 方法来用流畅式接口定制测试替身的生成过程。以下是仿件生成器所提供的方法列表：
 
-- >`setMethods(array $methods)` 可以在仿件生成器对象上调用，来指定哪些方法将被替换为可配置的测试替身。其他方法的行为不会有所改变。如果调用 `setMethods(null)`，那么没有方法会被替换。
-- >可以在仿件生成器对象上调用 `setMethodsExcept(array $methods)` 来指定哪些方法不被替换为可配置的测试替身，与此同时所有其他 `public` 方法都会被替换。`setMethods()` 的作用则相反。
-- >`setConstructorArgs(array $args)` 可用于向原版类的构造函数（默认情况下不会被替换为伪实现）提供参数数组。
-- >`setMockClassName($name)` 可用于指定生成的测试替身类的类名。
-- >`disableOriginalConstructor()` 参数可用于禁用对原版类的构造方法的调用。
-- >`disableOriginalClone()` 可用于禁用对原版类的克隆方法的调用。
-- >`disableAutoload()` 可用于在测试替身类的生成期间禁用 `__autoload()`。
+- `setMethods(array $methods)` 可以在仿件生成器对象上调用，来指定哪些方法将被替换为可配置的测试替身。其他方法的行为不会有所改变。如果调用 `setMethods(null)`，那么没有方法会被替换。
+- 可以在仿件生成器对象上调用 `setMethodsExcept(array $methods)` 来指定哪些方法不被替换为可配置的测试替身，与此同时所有其他 `public` 方法都会被替换。`setMethods()` 的作用则相反。
+- `setConstructorArgs(array $args)` 可用于向原版类的构造函数（默认情况下不会被替换为伪实现）提供参数数组。
+- `setMockClassName($name)` 可用于指定生成的测试替身类的类名。
+- `disableOriginalConstructor()` 参数可用于禁用对原版类的构造方法的调用。
+- `disableOriginalClone()` 可用于禁用对原版类的克隆方法的调用。
+- `disableAutoload()` 可用于在测试替身类的生成期间禁用 `__autoload()`。
 
 ---
 
-> 示例：需要模拟的类
+> 示例：模拟的`observer`类
 
 ```php
 <?php
@@ -235,6 +233,8 @@ class Observer
 }
 
 ```
+
+> 示例：模拟的subject类
 
 ```php
 <?php
@@ -284,7 +284,7 @@ class Subject
 
 ```
 
-> 示例：对subject类进行模拟
+> 示例：对`subject`类进行模拟
 
 ```php
 <?php
@@ -448,14 +448,15 @@ class SubjectTest extends TestCase
 
 ```
 
-三丶 `对特质（Trait）与抽象类进行模仿`
+
+## 三丶 `对特质（Trait）与抽象类进行模仿`
 
 > &emsp;`getMockForTrait()` 方法返回一个使用了特定特质（trait）的仿件对象。给定特质的所有抽象方法将都被模仿。
 > &emsp;`getMockForAbstractClass()` 方法返回一个抽象类的仿件对象。给定抽象类的所有抽象方法将都被模仿
 
 ---
 
-> 示例：需要模拟的类
+> 示例：模拟的`abstract`类
 
 ```php
 <?php
@@ -483,6 +484,8 @@ abstract class AbstractClass
 
 ```
 
+> 示例：模拟`trait`类
+
 ```php
 <?php
 
@@ -509,7 +512,7 @@ trait AbstractTrait
 
 ```
 
-> 对trait和abstract类进行模拟
+> 示例：对`trait`和`abstract`类进行模拟
 
 ```php
 <?php
@@ -565,18 +568,16 @@ class TraitTestClass extends TestCase
 
 ```
 
----
 
-四丶 `Web 服务（Web Services）进行上桩或模仿`
+## 四丶 `Web 服务（Web Services）进行上桩或模仿`
 
----
 
 >&emsp;当应用程序需要和 `web` 服务进行交互时，会想要在不与 `web` 服务进行实际交互的情况下对其进行测试。为了给 web 服务创建桩件或仿件，可以像使用 `getMock()`（见上文）那样使用 `getMockFromWsdl()`。唯一的区别是 `getMockFromWsdl()` 所返回的桩件或者仿件是基于以 `WSDL` 描述的 `web` 服务，而 `getMock()` 返回的桩件或者仿件是基于 `PHP` 类或接口的。
 >&emsp;展示了如何用 `getMockFromWsdl()` 来对（例如）`GoogleSearch.wsdl` 中描述的 web 服务上桩。
 
 ---
 
-> 示例：对googleSearch进行上桩
+> 示例：对`googleSearch`进行上桩
 
 ```php
 <?php
@@ -667,3 +668,30 @@ class GoogleTest extends TestCase
 
 ```
 
+
+```vue
+
+'@vuepress/active-header-links', // 页面滚动时自动激活侧边栏链接的插件
+    '@vuepress/back-to-top', // 返回顶部插件
+    '@vuepress/medium-zoom', // 图片预览插件
+    '@vuepress/nprogress', //页面顶部进度条
+    ['@vuepress/active-header-links', {
+      sidebarLinkSelector: '.sidebar-link',
+      headerAnchorSelector: '.header-anchor'
+    }]  // 页面滚动时自动激活侧边栏链接的插件
+    ['vuepress-plugin-code-copy', true], // 代码复制
+    [
+      '@vuepress/plugin-search',
+      {
+        locales: {
+          '/': {
+            placeholder: 'Search',
+          },
+          '/zh/': {
+            placeholder: '搜索',
+          },
+        },
+      },
+    ],
+
+```

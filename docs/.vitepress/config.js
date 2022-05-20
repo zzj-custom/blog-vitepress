@@ -1,4 +1,9 @@
+// const plugins = require("./plugins.js")
+
 module.exports = {
+  plugins: {
+    '@vuepress/back-to-top': true
+  },
   // 网站标题
   title: 'dream',
   // 网站描述
@@ -14,16 +19,11 @@ module.exports = {
     }]
   ],
   markdown: {
-    lineNumbers: true
+    lineNumbers: false,  // 显示行号
+    html: true,
+    xhtmlOut: true,
+    breaks: true
   },
-  // 使用插件
-  plugins: [
-    '@vuepress/active-header-links', // 页面滚动时自动激活侧边栏链接的插件
-    '@vuepress/back-to-top', // 返回顶部插件
-    '@vuepress/medium-zoom', // 图片预览插件
-    '@vuepress/nprogress', //页面顶部进度条
-    ['vuepress-plugin-code-copy', true], // 代码复制
-  ],
   // 主题配置
   themeConfig: {
     // 获取每个文件最后一次 git 提交的 UNIX 时间戳(ms)，同时它将以合适的日期格式显示在每一页的底部
@@ -46,7 +46,8 @@ module.exports = {
     ],
     sidebar: [{
         text: 'php单元测试',
-        children: [{
+        children: [
+          {
             text: '测试替身',
             link: '/phpunit/mock'
           },

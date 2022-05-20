@@ -19,9 +19,16 @@
   },
   "homepage": "https://github.com/zzj-custom/blog-vitepress#readme",
   "devDependencies": {
-    "vitepress": "^0.22.3"
+    "@vuepress/plugin-active-header-links": "^1.9.7",
+    "vitepress": "^0.22.3",
+    "vuepress-plugin-go-top": "^1.0.4",
+    "vuepress-plugin-meting": "^0.3.1"
   },
   "dependencies": {
-    "vuepress-plugin-code-copy": "^1.0.6"
+    "@vuepress/plugin-search": "^1.8.2",
+    "stylus": "^0.54.8",
+    "stylus-loader": "^6.1.0",
+    "vuepress-plugin-code-copy": "^1.0.6",
+    "vuepress-plugin-one-click-copy": "^1.0.6"
   }
 }
