@@ -42,5 +42,5 @@ jobs:
           git config user.email "${{ secrets.GIT_ACCOUNT }}"
           git add -A
           git commit -m 'deploy'
-          git push -f https://${{secrets.ACCESS_TOKEN}}@github.com/${{ secrets.GIT_NAME }}/blog-vitepress.git master:gh-pages
+          git push -f https://${{secrets.ACCESS_TOKEN}}@github.com/zzj-custom/blog-vitepress.git master:gh-pages
           cd -
