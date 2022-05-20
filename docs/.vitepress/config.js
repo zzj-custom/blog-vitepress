@@ -5,6 +5,7 @@ module.exports = {
   description: '小乖乖',
   // 打包目录
   dest: './dist',
+  base:'/blog-vitepress/',
   head: [
     // 添加图标
     ['link', {

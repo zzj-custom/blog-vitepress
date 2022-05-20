@@ -9,9 +9,10 @@ yarn build
 # 进入生成的文件夹
 cd docs/.vitepress/dist
 
+git init
 git add -A
 git commit -m 'deploy'
 
-git push -f git@github.com:zzj-custom/blog-vitepress.git master
+git push -f git@github.com:zzj-custom/blog-vitepress.git master:gh-pages
 
 cd -
