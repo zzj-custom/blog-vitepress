@@ -4,8 +4,8 @@ heroImage: /favicon.ico
 heroAlt: Logo image
 heroText: 知识文档
 tagline: 关于php和前端的相关知识，以及后续所遇到的问题和生活中的随笔
-actionText: 开始
-actionLink: /html/
+actionText: 开启知识的海洋
+actionLink: /phpunit/mock
 features:
   - title: 技术文章
     details: 关于php的一些相关知识，以及linux服务器的文章摘要。
