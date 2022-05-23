@@ -651,6 +651,10 @@ a.sidebar-link-item.active, .container pre, .container pre>code.hljs
 .container blockquote>:last-child
   margin-bottom 0
 
+// 将markdown里面的>文本开头加上两空格
+.container blockquote p
+  text-indent 2em
+
 .container ol, .container ul
   padding-left 2em
 
@@ -885,3 +889,11 @@ a.sidebar-link-item.active, .container pre, .container pre>code.hljs
 h3:not(h2 + h3)
   border-top 2px dashed #d6d6d6
   padding-top 1.5rem
+
+// ::: 自定义标题字体大小更改
+.custom-block .custom-block-title
+  font-size 18px
+
+// ::: 自定义内容的前面加上段落
+.custom-block p:nth-child(2)
+  text-indent 2em
