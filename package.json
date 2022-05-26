@@ -26,10 +26,11 @@
   },
   "dependencies": {
     "@vuepress/plugin-search": "^1.8.2",
+    "moment": "^2.29.3",
+    "quick-plugin-md": "^0.2.6",
     "stylus": "^0.54.8",
     "stylus-loader": "^6.1.0",
     "vuepress-plugin-code-copy": "^1.0.6",
-    "vuepress-plugin-one-click-copy": "^1.0.6",
-    "quick-plugin-md": "^0.2.6"
+    "vuepress-plugin-one-click-copy": "^1.0.6"
   }
 }

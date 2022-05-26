@@ -1,18 +1,21 @@
 // const plugins = require("./plugins.js")
 
 module.exports = {
+  server: {
+    host: '0.0.0.0',
+  },
   plugins: [
-    [ 
+    [
       '@vuepress/last-updated',
       {
         transformer: (timestamp, lang) => {
           // 不要忘了安装 moment
-          const moment = require('moment')
-          moment.locale(lang)
-          return moment(timestamp).fromNow()
-        }
-      }
-    ]
+          const moment = require('moment');
+          moment.locale(lang);
+          return moment(timestamp).fromNow();
+        },
+      },
+    ],
   ],
   // 网站标题
   title: '求贤若渴，求知若愚',
@@ -20,16 +23,19 @@ module.exports = {
   description: '知识文章和随笔记录',
   // 打包目录
   dest: './dist',
-  base:'/blog-vitepress/',
+  base: '/blog-vitepress/',
   head: [
     // 添加图标
-    ['link', {
-      rel: 'icon',
-      href: '/favicon.ico'
-    }]
+    [
+      'link',
+      {
+        rel: 'icon',
+        href: '/favicon.ico',
+      },
+    ],
   ],
   markdown: {
-    lineNumbers: false,  // 显示行号
+    lineNumbers: false, // 显示行号
     html: true,
     xhtmlOut: true,
     breaks: true,
@@ -54,37 +60,59 @@ module.exports = {
     smoothScroll: true,
     logo: '/favicon.ico',
     // 导航栏配置
-    nav: [{
+    nav: [
+      {
         text: '我的个人网站',
-        link: 'https://github.com/zzj-custom'
+        link: 'https://github.com/zzj-custom',
       },
       {
         text: '掘金',
-        link: 'https://juejin.cn/user/976022057793207'
+        link: 'https://juejin.cn/user/976022057793207',
       },
       {
         text: 'Github',
-        link: 'https://github.com/zzj-custom'
-      }
+        link: 'https://github.com/zzj-custom',
+      },
     ],
-    sidebar: [{
+    sidebar: [
+      {
         text: 'php单元测试',
         children: [
           {
             text: '基础内容',
-            link: '/phpunit/base'
+            link: '/phpunit/base',
           },
           {
             text: '断言',
-            link: '/phpunit/assert'
+            link: '/phpunit/assert',
           },
           {
             text: '测试替身',
-            link: '/phpunit/mock'
-          }
+            link: '/phpunit/mock',
+          },
         ],
-        sidebarDepth: 3
-      }
-    ]
-  }
-}
+        sidebarDepth: 3,
+      },
+      {
+        text: '纷销客',
+        children: [
+          {
+            text: '总结',
+            link: '/fxiaoke/index',
+          },
+        ],
+        sidebarDepth: 3,
+      },
+      {
+        text: '笔记',
+        children: [
+          {
+            text: '知识点',
+            link: '/notes/index',
+          },
+        ],
+        sidebarDepth: 3,
+      },
+    ],
+  },
+};
