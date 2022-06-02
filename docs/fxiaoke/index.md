@@ -772,10 +772,10 @@ title: 纷享客
 
 - 请求参数
 
-|   字段    |  类型  |          说明           |
-| :-------: | :----: | :---------------------: |
-| _fs_token | string | 感觉上是一个 token 验证 |
-|  traceId  | string |        模板的 ID        |
+|    字段    |  类型  |          说明           |
+| :--------: | :----: | :---------------------: |
+| \_fs_token | string | 感觉上是一个 token 验证 |
+|  traceId   | string |        模板的 ID        |
 
 - 返回结果
 
@@ -1341,12 +1341,11 @@ title: 纷享客
 
 - 字段分析
 
-|                   所属                    |    字段    | 说明                                                                                                                                                                                                                                                                                              |
-| :---------------------------------------: | :--------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-|      Value.subjectDomainAndTemplates      | domainName | 表示那些主题范围，如图所示：![主体范围](/fxiaoke/domain.png)                                                                                                                                                                                                                                      |
-|      Value.subjectDomainAndTemplates      | templates  | 表示模板，如图所示：![模板](/fxiaoke/template.png)                                                                                                                                                                                                                                                |
-| Value.subjectDomainAndTemplates.templates | chartType  | <font color="red">图表类型：</font><br>1. line(折线)<br>2. card(卡片)<br>3. doubley（双轴图）<br>4. pie（饼状图）<br>5. maphot（地图热力）<br>6. mapbubble（热力气泡）<br>7. stackline（堆叠折线图）<br> 8. gauge（仪表盘）<br>9. pivottable（交叉表）<br>10. table（表格）<br>11. funnel（漏斗） |
-
+|                   所属                    |    字段    | 说明                                                                                                                                                                                                                                                                                                                   |
+| :---------------------------------------: | :--------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|      Value.subjectDomainAndTemplates      | domainName | 表示那些主题范围，如图所示：![主体范围](/fxiaoke/domain.png)                                                                                                                                                                                                                                                           |
+|      Value.subjectDomainAndTemplates      | templates  | 表示模板，如图所示：![模板](/fxiaoke/template.png)                                                                                                                                                                                                                                                                     |
+| Value.subjectDomainAndTemplates.templates | chartType  | <font color="red">图表类型：</font><br>1. line(折线)<br>2. card(卡片)<br>3. doubley（双轴图）<br>4. pie（饼状图）<br>5. maphot（地图热力）<br>6. mapbubble（热力气泡）<br>7. stackline（堆叠折线图）<br> 8. gauge（仪表盘）<br>9. pivottable（交叉表）<br>10. table（表格）<br>11. funnel（漏斗）<br>12. bar（柱状图） |
 
 ---
 
@@ -1356,151 +1355,557 @@ title: 纷享客
 
 - 请求参数
 
-|   字段    |  类型   |                  说明                   |
-| :-------: | :-----: | :-------------------------------------: |
-| _fs_token | string  |         感觉上是一个 token 验证         |
-|  traceId  | string  |                 主题 ID                 |
-|    id     | string  | 模板的ID："BI_5d9efdaf37aa1b9ff04a4ce8" |
-|  isView   | boolean |                是否展示                 |
+|    字段    |  类型   |                   说明                   |
+| :--------: | :-----: | :--------------------------------------: |
+| \_fs_token | string  |         感觉上是一个 token 验证          |
+|  traceId   | string  |                 主题 ID                  |
+|     id     | string  | 模板的 ID："BI_5d9efdaf37aa1b9ff04a4ce8" |
+|   isView   | boolean |                 是否展示                 |
 
 - 返回结果
 
 ```json
-
 {
-    "Result": {
-        "FailureCode": 0,
-        "StatusCode": 0,
-        "UserInfo": {
-            "EmployeeID": 1171,
-            "EnterpriseAccount": "pft12301"
-        }
-    },
-    "Value": {
-        "filterLists": [
-            {
-                "filters": [
-                    {
-                        "displayNumber": 1,
-                        "fieldID": "BI_5bcec12156fc11160c100443",
-                        "fieldId": "BI_5bcec12156fc11160c100443",
-                        "isLock": 0,
-                        "operator": 23,
-                        "value1": "",
-                        "dbFieldName": "action_date",
-                        "dbObjName": "agg_data",
-                        "fieldName": "日期",
-                        "operatorLabel": "时间段",
-                        "dateRangeID": "4",
-                        "fieldType": "Date",
-                        "value2": "",
-                        "parentID": "",
-                        "filterId": "BI_5d9efdaf37aa1b9ff04a4cee",
-                        "ui": {
-                            "type": "UI_Time",
-                            "group": "Date",
-                            "justLeafNodeSelect": 0
-                        },
-                        "fieldLocation": "action_date",
-                        "realFieldId": "BI_5bcec12156fc11160c100443",
-                        "status": 1,
-                        "objectDescribeApiName": "org_employee_user",
-                        "objShowName": "人员",
-                        "isContainStopEmployeeOption": 0,
-                        "isSupportStopEmployeeOption": 0,
-                        "type": "date",
-                        "formatStr": "yyyy-MM-dd",
-                        "isLeakage": 0
-                    },
-                    {
-                        "displayNumber": 2,
-                        "fieldID": "BI_5bcec12156fc11160c100417",
-                        "fieldId": "BI_5bcec12156fc11160c100417",
-                        "isLock": 0,
-                        "operator": 26,
-                        "value1": "[]",
-                        "dbFieldName": "main_department",
-                        "dbObjName": "dim_data",
-                        "fieldName": "主属部门",
-                        "operatorLabel": "属于",
-                        "fieldType": "String",
-                        "refObjName": "org_dept",
-                        "filterId": "BI_5d9efdaf37aa1b9ff04a4ced",
-                        "subFieldType": "Circle",
-                        "ui": {
-                            "type": "UI_Selection",
-                            "justLeafNodeSelect": 0,
-                            "tabList": [],
-                            "myOrg": {
-                                "myOwnCircle": [],
-                                "lowerEmployee": []
-                            }
-                        },
-                        "fieldLocation": "value11",
-                        "refKeyField": "dept_id",
-                        "refTargetField": "name",
-                        "udfFieldId": "BI_8a2913469ae02bfdb627d12673557264",
-                        "realFieldId": "BI_5bcec12156fc11160c100417",
-                        "status": 1,
-                        "objectDescribeApiName": "org_employee_user",
-                        "objShowName": "人员",
-                        "isContainStopEmployeeOption": 0,
-                        "isSupportStopEmployeeOption": 1,
-                        "type": "department",
-                        "formatStr": "",
-                        "crmObjName": "PersonnelObj",
-                        "isLeakage": 0
-                    }
-                ]
-            }
-        ],
-        "filtersLogic": "(1and2)",
-        "labelAndOptions": [
-            {
-                "defaultFilterOptionType": "org_employee_user",
-                "label": "场景",
-                "defaultFilterOptions": [
-                    {
-                        "optionName": "全部",
-                        "isDefault": 1,
-                        "optionID": "BI_59a3e59333b39e09b44e9db1"
-                    },
-                    {
-                        "optionName": "我自己",
-                        "isDefault": 0,
-                        "optionID": "BI_59a3e59333b39e09b44e9db2"
-                    },
-                    {
-                        "optionName": "我负责部门的",
-                        "isDefault": 0,
-                        "optionID": "BI_59a3e59333b39e09b44e9db4"
-                    },
-                    {
-                        "optionName": "我下属的",
-                        "isDefault": 0,
-                        "optionID": "BI_59a3e59333b39e09b44e9db5"
-                    },
-                    {
-                        "optionName": "共享给我的",
-                        "isDefault": 0,
-                        "optionID": "BI_59a3e59333b39e09b44e9db7"
-                    }
-                ]
-            }
-        ],
-        "presetStatAsyncQuery": 0,
-        "udfStatAsyncQuery": 1,
-        "offlineFieldsTips": {}
+  "Result": {
+    "FailureCode": 0,
+    "StatusCode": 0,
+    "UserInfo": {
+      "EmployeeID": 1171,
+      "EnterpriseAccount": "pft12301"
     }
+  },
+  "Value": {
+    "filterLists": [
+      {
+        "filters": [
+          {
+            "displayNumber": 1,
+            "fieldID": "BI_5bcec12156fc11160c100443",
+            "fieldId": "BI_5bcec12156fc11160c100443",
+            "isLock": 0,
+            "operator": 23,
+            "value1": "",
+            "dbFieldName": "action_date",
+            "dbObjName": "agg_data",
+            "fieldName": "日期",
+            "operatorLabel": "时间段",
+            "dateRangeID": "4",
+            "fieldType": "Date",
+            "value2": "",
+            "parentID": "",
+            "filterId": "BI_5d9efdaf37aa1b9ff04a4cee",
+            "ui": {
+              "type": "UI_Time",
+              "group": "Date",
+              "justLeafNodeSelect": 0
+            },
+            "fieldLocation": "action_date",
+            "realFieldId": "BI_5bcec12156fc11160c100443",
+            "status": 1,
+            "objectDescribeApiName": "org_employee_user",
+            "objShowName": "人员",
+            "isContainStopEmployeeOption": 0,
+            "isSupportStopEmployeeOption": 0,
+            "type": "date",
+            "formatStr": "yyyy-MM-dd",
+            "isLeakage": 0
+          },
+          {
+            "displayNumber": 2,
+            "fieldID": "BI_5bcec12156fc11160c100417",
+            "fieldId": "BI_5bcec12156fc11160c100417",
+            "isLock": 0,
+            "operator": 26,
+            "value1": "[]",
+            "dbFieldName": "main_department",
+            "dbObjName": "dim_data",
+            "fieldName": "主属部门",
+            "operatorLabel": "属于",
+            "fieldType": "String",
+            "refObjName": "org_dept",
+            "filterId": "BI_5d9efdaf37aa1b9ff04a4ced",
+            "subFieldType": "Circle",
+            "ui": {
+              "type": "UI_Selection",
+              "justLeafNodeSelect": 0,
+              "tabList": [],
+              "myOrg": {
+                "myOwnCircle": [],
+                "lowerEmployee": []
+              }
+            },
+            "fieldLocation": "value11",
+            "refKeyField": "dept_id",
+            "refTargetField": "name",
+            "udfFieldId": "BI_8a2913469ae02bfdb627d12673557264",
+            "realFieldId": "BI_5bcec12156fc11160c100417",
+            "status": 1,
+            "objectDescribeApiName": "org_employee_user",
+            "objShowName": "人员",
+            "isContainStopEmployeeOption": 0,
+            "isSupportStopEmployeeOption": 1,
+            "type": "department",
+            "formatStr": "",
+            "crmObjName": "PersonnelObj",
+            "isLeakage": 0
+          }
+        ]
+      }
+    ],
+    "filtersLogic": "(1and2)",
+    "labelAndOptions": [
+      {
+        "defaultFilterOptionType": "org_employee_user",
+        "label": "场景",
+        "defaultFilterOptions": [
+          {
+            "optionName": "全部",
+            "isDefault": 1,
+            "optionID": "BI_59a3e59333b39e09b44e9db1"
+          },
+          {
+            "optionName": "我自己",
+            "isDefault": 0,
+            "optionID": "BI_59a3e59333b39e09b44e9db2"
+          },
+          {
+            "optionName": "我负责部门的",
+            "isDefault": 0,
+            "optionID": "BI_59a3e59333b39e09b44e9db4"
+          },
+          {
+            "optionName": "我下属的",
+            "isDefault": 0,
+            "optionID": "BI_59a3e59333b39e09b44e9db5"
+          },
+          {
+            "optionName": "共享给我的",
+            "isDefault": 0,
+            "optionID": "BI_59a3e59333b39e09b44e9db7"
+          }
+        ]
+      }
+    ],
+    "presetStatAsyncQuery": 0,
+    "udfStatAsyncQuery": 1,
+    "offlineFieldsTips": {}
+  }
 }
-
 ```
 
 - 字段分析
-  
+
 |                    所属                    |      字段       | 说明                                                             |
 | :----------------------------------------: | :-------------: | :--------------------------------------------------------------- |
 |                   Value                    | labelAndOptions | 统计图里面的默认场景数据：![默认场景](/fxiaoke/labelOptions.png) |
-|         Value.filterLists.filters          |     fieldID     | 这个就是 维度指标里面的fieldId                                   |
+|         Value.filterLists.filters          |     fieldID     | 这个就是 维度指标里面的 fieldId                                  |
 |         Value.filterLists.filters          |     isLock      | 判断该字段在数据范围是否能被修改：![是否修改](/fxiaoke/lock.png) |
-| Value.labelAndOptions.defaultFilterOptions |    isDefault    | select下拉框中是否是默认选中的那个                               |
+| Value.labelAndOptions.defaultFilterOptions |    isDefault    | select 下拉框中是否是默认选中的那个                              |
+
+---
+
+## 六丶图表配置
+
+- [获取图表配置](https://www.fxiaoke.com/FHH/EM1HBISTAT/fs-bi-stat/stat/chartConfig/query?_fs_token=OM5bPJGuE3ajD3LcD2qqOMOmBM8oEJGjOZ8nPM4rCZLXEJOv&traceId=E-E.pft12301.1171-1653632236633)
+
+- 请求参数
+
+|    字段    |  类型   |                   说明                   |
+| :--------: | :-----: | :--------------------------------------: |
+| \_fs_token | string  |         感觉上是一个 token 验证          |
+|  traceId   | string  |                 主题 ID                  |
+|     id     | string  | 模板的 ID："BI_5d9efdaf37aa1b9ff04a4ce8" |
+|   isView   | boolean |                 是否展示                 |
+|    type    | string  |   类型(add -> 意思是请求的类型是求和)    |
+
+- 返回结果
+
+```json
+{
+  "Result": {
+    "FailureCode": 0,
+    "StatusCode": 0,
+    "UserInfo": {
+      "EmployeeID": 1171,
+      "EnterpriseAccount": "pft12301"
+    }
+  },
+  "Value": {
+    "topNum": 0,
+    "chartType": "bar",
+    "dimensionFields": [
+      {
+        "fieldID": "BI_213150709075050496",
+        "fieldId": "BI_213150709075050496",
+        "refObjName": "",
+        "parentDbFieldName": "action_date",
+        "fieldName": "日期（月）",
+        "fieldType": "Date",
+        "dbFieldName": "f_month",
+        "dbObjName": "dim_sys_date",
+        "isVisible": 1,
+        "orderType": 0,
+        "canDrillDown": 0,
+        "parentID": "BI_5bcec12156fc11160c100443",
+        "parentId": "BI_5bcec12156fc11160c100443",
+        "hasChildren": 0,
+        "sourObjName": "dim_sys_date",
+        "sourFieldName": "f_month",
+        "sourFieldId": "BI_213150709075050496",
+        "fieldLocation": "",
+        "isPre": 0,
+        "udfFieldId": "",
+        "objectDescribeApiName": "org_employee_user",
+        "cellWidth": 0,
+        "objShowName": "人员",
+        "type": "",
+        "hierarchyGroupFlag": 0,
+        "fixAccountPathLevel": 0,
+        "canLevelGroup": 0,
+        "isMainAttribute": false,
+        "fixed": 0,
+        "calcStrategy": "COMMON"
+      }
+    ],
+    "dimensionField": {
+      "fieldID": "BI_213150709075050496",
+      "fieldId": "BI_213150709075050496",
+      "refObjName": "",
+      "parentDbFieldName": "action_date",
+      "fieldName": "日期（月）",
+      "fieldType": "Date",
+      "dbFieldName": "f_month",
+      "dbObjName": "dim_sys_date",
+      "isVisible": 1,
+      "orderType": 0,
+      "canDrillDown": 0,
+      "parentID": "BI_5bcec12156fc11160c100443",
+      "parentId": "BI_5bcec12156fc11160c100443",
+      "hasChildren": 0,
+      "sourObjName": "dim_sys_date",
+      "sourFieldName": "f_month",
+      "sourFieldId": "BI_213150709075050496",
+      "fieldLocation": "",
+      "isPre": 0,
+      "udfFieldId": "",
+      "objectDescribeApiName": "org_employee_user",
+      "cellWidth": 0,
+      "objShowName": "人员",
+      "type": "",
+      "hierarchyGroupFlag": 0,
+      "fixAccountPathLevel": 0,
+      "canLevelGroup": 0,
+      "isMainAttribute": false,
+      "fixed": 0,
+      "calcStrategy": "COMMON"
+    },
+    "layout": {
+      "aMeasure": "",
+      "colorGroup": 0,
+      "isDimensionShow": 0,
+      "isLegendShow": 1,
+      "isTableShow": 0,
+      "isValueShow": 1,
+      "itemShowStyle": 0,
+      "valuePosition": "top",
+      "valueShowStyle": "",
+      "xAxisLabelDegree": 0,
+      "xAxisName": "",
+      "xAxisNameIsShow": 0,
+      "yAxisList": [
+        {
+          "chartType": "bar",
+          "isNameShow": 0,
+          "labelDegree": 0,
+          "name": "",
+          "yAxisIndex": 1
+        }
+      ],
+      "isHollowCircle": 0,
+      "isSmoothLine": 0,
+      "barDirect": "vertical",
+      "isShowDimension": 0,
+      "isAreaNameShow": 0,
+      "visualType": 0,
+      "showTotal": 1,
+      "showSubTotal": 1,
+      "notCardValueShow": 1,
+      "notShowSplitLine": 0,
+      "notShowLabels": 0,
+      "isRowToColumn": 0,
+      "lineShowStyle": 0,
+      "isShowSerialNumber": 0,
+      "isShowSubTitle": 0,
+      "autoWordBreak": 0,
+      "isStaggeredYAxis": 1,
+      "tableOnlyInDetail": 1,
+      "fontSize": 12,
+      "showVerticalTotal": 1,
+      "showVerticalSubTotal": 1,
+      "isConfigSenior": 0,
+      "isShowMarkLine": 0
+    },
+    "measureFields": [
+      {
+        "fieldID": "BI_5d9ff3331b9ad40001873791",
+        "fieldName": "目标值",
+        "fieldType": "Number",
+        "dbFieldName": "month_value",
+        "dbObjName": "agg_data",
+        "isVisible": 1,
+        "orderType": 0,
+        "aggrType": "2",
+        "yAxisIndex": 1,
+        "legendName": "目标值",
+        "isDetail": 1,
+        "parentID": "",
+        "formula": "",
+        "formatStr": "#,##0.00",
+        "ratioType": "0",
+        "fieldLocation": "value0",
+        "subFieldType": "",
+        "refObjName": "",
+        "isPredefined": 2,
+        "status": 1,
+        "udfFieldId": "BI_71eaff0a1cd11c780ef22615688a27a4",
+        "isNullActionDate": false,
+        "isShowLegend": 1,
+        "cellWidth": 0,
+        "objShowName": "目标值对象",
+        "allowDetailExport": 0,
+        "type": "number",
+        "isShowValue": 1,
+        "fixed": 0,
+        "objectDescribeApiName": "goal_value_obj",
+        "aggrTypeMap": {
+          "2": "求和"
+        },
+        "ruleCreateTime": "Aug 20, 2021 7:42:14 PM",
+        "ruleLastModifiedTime": "Aug 20, 2021 7:42:14 PM",
+        "keyCountDistinctType": false
+      },
+      {
+        "fieldID": "BI_nvv76jyhwg6qoojfw9ike31u",
+        "fieldName": "完成值",
+        "fieldType": "Number",
+        "dbFieldName": "achieve_value",
+        "dbObjName": "agg_data",
+        "isVisible": 1,
+        "orderType": 0,
+        "aggrType": "2",
+        "yAxisIndex": 1,
+        "legendName": "完成值",
+        "isDetail": 1,
+        "formula": "",
+        "formatStr": "0",
+        "ratioType": "0",
+        "fieldLocation": "achieve_value",
+        "subFieldType": "",
+        "refObjName": "",
+        "isPredefined": 2,
+        "status": 1,
+        "udfFieldId": "BI_71eaff0a1cd11c780ef22615688a27a4",
+        "isNullActionDate": false,
+        "isShowLegend": 1,
+        "cellWidth": 0,
+        "objShowName": "目标值对象",
+        "allowDetailExport": 0,
+        "type": "number",
+        "isShowValue": 1,
+        "fixed": 0,
+        "objectDescribeApiName": "goal_value_obj",
+        "aggrTypeMap": {
+          "2": "求和"
+        },
+        "keyCountDistinctType": false
+      },
+      {
+        "fieldID": "BI_5cbad2afd5f64d0001152189",
+        "fieldName": "商机2.0金额(不含输单)",
+        "fieldType": "Number",
+        "dbFieldName": "amount",
+        "dbObjName": "agg_data",
+        "isVisible": 1,
+        "orderType": 0,
+        "aggrType": "2",
+        "yAxisIndex": 1,
+        "legendName": "预计成交商机金额",
+        "isDetail": 1,
+        "formula": "",
+        "formatStr": "#,##0.00",
+        "ratioType": "0",
+        "fieldLocation": "value4",
+        "subFieldType": "",
+        "isPredefined": 1,
+        "status": 1,
+        "udfFieldId": "BI_24505d9d03e62c8e9f7270e04e8256b9",
+        "isNullActionDate": false,
+        "isShowLegend": 1,
+        "cellWidth": 0,
+        "objShowName": "商机管理",
+        "allowDetailExport": 0,
+        "type": "currency",
+        "isShowValue": 1,
+        "fixed": 0,
+        "objectDescribeApiName": "new_opportunity",
+        "aggrTypeMap": {
+          "2": "求和"
+        },
+        "ruleCreateTime": "Aug 20, 2021 7:42:14 PM",
+        "ruleLastModifiedTime": "Aug 20, 2021 7:42:14 PM",
+        "keyCountDistinctType": false
+      },
+      {
+        "fieldID": "BI_5cbad35bd5f64d000115218f",
+        "fieldName": "赢单商机金额(商机2.0)",
+        "fieldType": "Number",
+        "dbFieldName": "amount",
+        "dbObjName": "agg_data",
+        "isVisible": 1,
+        "orderType": 0,
+        "aggrType": "2",
+        "yAxisIndex": 1,
+        "legendName": "赢单商机金额",
+        "isDetail": 1,
+        "formula": "",
+        "formatStr": "#,##0.00",
+        "ratioType": "0",
+        "fieldLocation": "value7",
+        "subFieldType": "",
+        "isPredefined": 1,
+        "status": 1,
+        "udfFieldId": "BI_24505d9d03e62c8e9f7270e04e8256b9",
+        "isNullActionDate": false,
+        "isShowLegend": 1,
+        "cellWidth": 0,
+        "objShowName": "商机管理",
+        "allowDetailExport": 0,
+        "type": "currency",
+        "isShowValue": 1,
+        "fixed": 0,
+        "objectDescribeApiName": "new_opportunity",
+        "aggrTypeMap": {
+          "2": "求和"
+        },
+        "ruleCreateTime": "Aug 20, 2021 7:42:14 PM",
+        "ruleLastModifiedTime": "Aug 20, 2021 7:42:14 PM",
+        "keyCountDistinctType": false
+      },
+      {
+        "fieldID": "BI_5bcee8b2b8e0e70001016199",
+        "fieldName": "已确认的订单金额",
+        "fieldType": "Number",
+        "dbFieldName": "order_amount",
+        "dbObjName": "agg_data",
+        "isVisible": 1,
+        "orderType": 0,
+        "aggrType": "2",
+        "yAxisIndex": 1,
+        "legendName": "订单金额",
+        "isDetail": 1,
+        "formula": "",
+        "formatStr": "#,##0.00",
+        "ratioType": "0",
+        "fieldLocation": "value24",
+        "subFieldType": "",
+        "refObjName": "",
+        "isPredefined": 1,
+        "status": 1,
+        "udfFieldId": "BI_a222c307fa963c2d2ed18f51e17c3aad",
+        "isNullActionDate": false,
+        "isShowLegend": 1,
+        "cellWidth": 0,
+        "objShowName": "合同订单",
+        "allowDetailExport": 0,
+        "type": "currency",
+        "isShowValue": 1,
+        "fixed": 0,
+        "objectDescribeApiName": "biz_sales_order",
+        "aggrTypeMap": {
+          "2": "求和"
+        },
+        "ruleCreateTime": "Aug 20, 2021 7:42:14 PM",
+        "ruleLastModifiedTime": "May 7, 2022 7:19:57 PM",
+        "keyCountDistinctType": false
+      },
+      {
+        "fieldID": "BI_5ddbbbd6d7c5c40001c95fe2",
+        "fieldName": "回款金额",
+        "fieldType": "Number",
+        "dbFieldName": "payment_amount",
+        "dbObjName": "agg_data",
+        "isVisible": 1,
+        "orderType": 0,
+        "aggrType": "2",
+        "yAxisIndex": 1,
+        "legendName": "回款金额",
+        "isDetail": 1,
+        "formula": "",
+        "formatStr": "0.00",
+        "ratioType": "0",
+        "fieldLocation": "value65",
+        "subFieldType": "Stat",
+        "isPredefined": 1,
+        "status": 1,
+        "udfFieldId": "BI_0b1a65feefde7a0dae34e95d3372d901",
+        "isNullActionDate": false,
+        "isShowLegend": 1,
+        "cellWidth": 0,
+        "objShowName": "回款记录",
+        "allowDetailExport": 0,
+        "type": "count",
+        "isShowValue": 1,
+        "fixed": 0,
+        "objectDescribeApiName": "payment_customer",
+        "aggrTypeMap": {
+          "2": "求和"
+        },
+        "ruleCreateTime": "Aug 20, 2021 7:42:13 PM",
+        "ruleLastModifiedTime": "Aug 20, 2021 7:42:13 PM",
+        "keyCountDistinctType": false
+      }
+    ],
+    "userDefined": 1,
+    "schemaId": "BI_5bcec11f56fc11160c8c8271",
+    "currentTime": "2022-05-27 14:17:16",
+    "isShowDimension": 1,
+    "source": 1,
+    "chartStatus": 0,
+    "presetStatAsyncQuery": 0,
+    "udfStatAsyncQuery": 1,
+    "offlineFieldsTips": {},
+    "reqId": "bi_stat_configcache_BI_5d9efd8537aa1b9ff04a4cd0_36eff0f3b6159db430a0945f13880898_ZH-CN",
+    "hideGoalFilter": 0,
+    "dataSource": 0,
+    "disableEmpGlobalFilter": 0,
+    "isPre": 0,
+    "dimensionAttrFields": [],
+    "needFreezeCol": 1
+  }
+}
+```
+
+- 字段分析
+
+|         所属          |              字段               | 说明                                                              |
+| :-------------------: | :-----------------------------: | :---------------------------------------------------------------- |
+|         Value         |             topNum              | 取前几的数据                                                      |
+|         Value         |            chartType            | 图表类型（bar -> 柱状图）                                         |
+|         Value         | dimensionFields, dimensionField | 维度数据                                                          |
+|         Value         |             layout              | 样式展示                                                          |
+|         Value         |          measureFields          | 指标值                                                            |
+|         Value         |         isShowDimension         | 是否展示维度值                                                    |
+|         Value         |           chartStatus           | 图表状态（0表示正常，1-表示有问题）                               |
+|         Value         |              reqId              | 这个是用于查数据的时候，加载数据的requestId                       |
+| Value.dimensionFields |         fieldID,fieldId         | 字段id                                                            |
+| Value.dimensionFields |        parentDbFieldName        | 父级数据库字段名称（上面的例子是日期月，腹父级字段是日期字段）    |
+| Value.dimensionFields |       fieldName,fieldType       | 1: 字段名称（展示在页面上维度上名称）,2: 字段类型（date属于日期） |
+| Value.dimensionFields |           dbFieldName           | 数据库字段名称                                                    |
+| Value.dimensionFields |            dbObjName            | 数据库对象名称                                                    |
+|  Value.measureFields  |            aggrType             | 聚合类型（2 - 求和）                                              |
+|  Value.measureFields  |           aggrTypeMap           | 聚合类型Map，表示这个字段应该做数组下面的这几种聚合类型           |
+|  Value.measureFields  |           isShowValue           | 是否展示value值                                                   |
+|  Value.measureFields  |              type               | 指标类型（number，数字类型）                                      |
+
+
+---

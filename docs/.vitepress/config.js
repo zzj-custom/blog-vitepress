@@ -107,8 +107,52 @@ module.exports = {
         text: '笔记',
         children: [
           {
-            text: '知识点',
-            link: '/notes/index',
+            text: 'ssh',
+            link: '/notes/ssh',
+          },
+          {
+            text: 'git',
+            link: '/notes/git',
+          },
+          {
+            text: 'linux',
+            link: '/notes/linux',
+          },
+          {
+            text: 'typescript',
+            link: '/notes/typescript',
+          },
+          {
+            text: 'vue',
+            link: '/notes/vue',
+          },
+          {
+            text: 'docker',
+            link: '/notes/docker',
+          },
+          {
+            text: 'mysql',
+            link: '/notes/mysql',
+          },
+          {
+            text: 'redis',
+            link: '/notes/redis',
+          },
+          {
+            text: 'css',
+            link: '/notes/css',
+          },
+          {
+            text: 'go',
+            link: '/notes/go',
+          },
+          {
+            text: 'python',
+            link: '/notes/python',
+          },
+          {
+            text: 'jenkins',
+            link: '/notes/jenkins',
           },
         ],
         sidebarDepth: 3,
