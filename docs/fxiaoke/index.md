@@ -396,12 +396,12 @@ title: 纷享客
   1. Value 下面的 fieldInfoList 数组表示整个主题下面的字段 ![字段图](/fxiaoke/topic.png)
   2. fieldInfoList 里面数据
 
-|     所属      |     字段      | 说明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| :-----------: | :-----------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| fieldInfoList |   objectId    | 每一个 `objectsAndFields` 下面的 `fieldInfoList` 的每个数组的 `objectId` 都是相同的，并且和 `businessObjects` 下面的 `objectId`相对应的，<font color="red">注意：上图是有客户，相关团队，人员三个分类，但是 `businessObjects` 只有两个分类</font>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| fieldInfoList | fieldLocation | 猜测是字段的位置，可能是用来排序, 同一个 `objectId` 下面的相同 `fieldType` 的 `fieldLocation` 还是不相同的                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| fieldInfoList |   fieldType   | 字段类型，目前看到的有： `String` , `Number` , `Date` , `Boolean`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| fieldInfoList | subFieldType  | 1. ui 字段类型：当 ui 下面的 type 为 UI_MultiSelect 的时候，那么值就为：MultiSelectEnum。<br>2. 当 ui 下面的 type 为 UI_Input 的时候，那么值就为：空字符串。<br>3. 当 ui 下面的 type 为 `UI_Input`和 `UI_Lookup`（比`UI_Input`多这几个字段 `"refObjName"` `"refKeyField"` `"refTargetField"` `"urlObj"`）的时候，那么值就为：空字符串。<br>4. 当 ui 下面的 type 为 UI_Selection 的时候，那么值就为：Circle，当是人员选择是这样的时候 ![circle](/fxiaoke/circle.png)。<br>5. 当 ui 下面的 type 为 UI_Time 的时候，那么值就为：DateTime（fieldType 为 DateTime）或者空字符串（fieldType 为 Date）。<br>6. 当 ui 下面的 type 为 UI_MultiSelect 并且 justLeafNodeSelect 为 1 的时候，那么值就为：LevelEnum ，意思就是做多级联动的时候使用这个。<br>7. |
+|     所属      |     字段      | 说明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| :-----------: | :-----------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| fieldInfoList |   objectId    | 每一个 `objectsAndFields` 下面的 `fieldInfoList` 的每个数组的 `objectId` 都是相同的，并且和 `businessObjects` 下面的 `objectId`相对应的，注意：上图是有客户，相关团队，人员三个分类，但是 `businessObjects` 只有两个分类                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| fieldInfoList | fieldLocation | 猜测是字段的位置，可能是用来排序, 同一个 `objectId` 下面的相同 `fieldType` 的 `fieldLocation` 还是不相同的                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| fieldInfoList |   fieldType   | 字段类型，目前看到的有： `String` , `Number` , `Date` , `Boolean`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| fieldInfoList | subFieldType  | ui 字段类型：当 ui 下面的 type 为 UI_MultiSelect 的时候，那么值就为：MultiSelectEnum。2. 当 ui 下面的 type 为 UI_Input 的时候，那么值就为：空字符串。3. 当 ui 下面的 type 为 `UI_Input`和 `UI_Lookup`（比`UI_Input`多这几个字段 `"refObjName"` `"refKeyField"` `"refTargetField"` `"urlObj"`）的时候，那么值就为：空字符串。4. 当 ui 下面的 type 为 UI_Selection 的时候，那么值就为：Circle，当是人员选择是这样的时候 ![circle](/fxiaoke/circle.png)。5. 当 ui 下面的 type 为 UI_Time 的时候，那么值就为：DateTime（fieldType 为 DateTime）或者空字符串（fieldType 为 Date）。6. 当 ui 下面的 type 为 UI_MultiSelect 并且 justLeafNodeSelect 为 1 的时候，那么值就为：LevelEnum ，意思就是做多级联动的时候使用这个。 |
 
 ---
 
@@ -772,10 +772,10 @@ title: 纷享客
 
 - 请求参数
 
-|    字段    |  类型  |          说明           |
-| :--------: | :----: | :---------------------: |
-| \_fs_token | string | 感觉上是一个 token 验证 |
-|  traceId   | string |        模板的 ID        |
+|   字段    |  类型  |          说明           |
+| :-------: | :----: | :---------------------: |
+| _fs_token | string | 感觉上是一个 token 验证 |
+|  traceId  | string |        模板的 ID        |
 
 - 返回结果
 
@@ -1341,11 +1341,11 @@ title: 纷享客
 
 - 字段分析
 
-|                   所属                    |    字段    | 说明                                                                                                                                                                                                                                                                                                                   |
-| :---------------------------------------: | :--------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|      Value.subjectDomainAndTemplates      | domainName | 表示那些主题范围，如图所示：![主体范围](/fxiaoke/domain.png)                                                                                                                                                                                                                                                           |
-|      Value.subjectDomainAndTemplates      | templates  | 表示模板，如图所示：![模板](/fxiaoke/template.png)                                                                                                                                                                                                                                                                     |
-| Value.subjectDomainAndTemplates.templates | chartType  | <font color="red">图表类型：</font><br>1. line(折线)<br>2. card(卡片)<br>3. doubley（双轴图）<br>4. pie（饼状图）<br>5. maphot（地图热力）<br>6. mapbubble（热力气泡）<br>7. stackline（堆叠折线图）<br> 8. gauge（仪表盘）<br>9. pivottable（交叉表）<br>10. table（表格）<br>11. funnel（漏斗）<br>12. bar（柱状图） |
+|                   所属                    |    字段    | 说明                                                                                                                                                                                                                                         |
+| :---------------------------------------: | :--------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|      Value.subjectDomainAndTemplates      | domainName | 表示那些主题范围，如图所示：![主体范围](/fxiaoke/domain.png)                                                                                                                                                                                 |
+|      Value.subjectDomainAndTemplates      | templates  | 表示模板，如图所示：![模板](/fxiaoke/template.png)                                                                                                                                                                                           |
+| Value.subjectDomainAndTemplates.templates | chartType  | 图表类型：1. line(折线)2. card(卡片)3. doubley（双轴图）4. pie（饼状图）5. maphot（地图热力）6. mapbubble（热力气泡）7. stackline（堆叠折线图）8. gauge（仪表盘）9. pivottable（交叉表）10. table（表格）11. funnel（漏斗）12. bar（柱状图） |
 
 ---
 
@@ -1510,13 +1510,13 @@ title: 纷享客
 
 - 请求参数
 
-|    字段    |  类型   |                   说明                   |
-| :--------: | :-----: | :--------------------------------------: |
-| \_fs_token | string  |         感觉上是一个 token 验证          |
-|  traceId   | string  |                 主题 ID                  |
-|     id     | string  | 模板的 ID："BI_5d9efdaf37aa1b9ff04a4ce8" |
-|   isView   | boolean |                 是否展示                 |
-|    type    | string  |   类型(add -> 意思是请求的类型是求和)    |
+|   字段    |  类型   |                   说明                   |
+| :-------: | :-----: | :--------------------------------------: |
+| _fs_token | string  |         感觉上是一个 token 验证          |
+|  traceId  | string  |                 主题 ID                  |
+|    id     | string  | 模板的 ID："BI_5d9efdaf37aa1b9ff04a4ce8" |
+|  isView   | boolean |                 是否展示                 |
+|   type    | string  |   类型(add -> 意思是请求的类型是求和)    |
 
 - 返回结果
 

@@ -369,161 +369,291 @@ ENV TIMEZONE=${timezone:-"Asia/Shanghai"} \
 ```
 
 ## 四丶构建项目
-   docker build -t runoob/ubuntu:v1 . // 使用当前目录的 Dockerfile 创建镜像，标签为 runoob/ubuntu:v1。
 
-docker build github.com/creack/docker-firefox // 使用 URL github.com/creack/docker-firefox 的 Dockerfile 创建镜像。
+- 使用当前目录的 Dockerfile 创建镜像，标签为 runoob/ubuntu:v1。
 
-docker build -f /path/to/a/Dockerfile . //通过 -f Dockerfile 文件的位置
+```go
+docker build -t runoob/ubuntu:v1 .
+```
 
-docker build -t test/myapp . //在 Docker 守护进程执行 Dockerfile 中的指令前，首先会对 Dockerfile 进行语法检查，有语法错误时会返回 5. 整个镜像文件操作
+- 使用 URL github.com/creack/docker-firefox 的 Dockerfile 创建镜像。
+
+```go
+docker build github.com/creack/docker-firefox
+```
+
+- 通过 -f Dockerfile 文件的位置
+
+```go
+docker build -f /path/to/a/Dockerfile .
+```
+- 在 Docker 守护进程执行 Dockerfile 中的指令前，首先会对 Dockerfile 进行语法检查，有语法错误时会返回
+
+```go
+docker build -t test/myapp . 
+```
+- 整个镜像文件操作
+
+```go
 cat alibaba-rocketmq-3.2.6.tar.gz | docker import - rocketmq:3.2.6(镜像名自己定义)
-说明：docker 导入本地镜像， 本地的镜像导入，使用 docker import 命令。
-注意：镜像文件必须是 tar.gz 类型的文件。
+```
 
+::: tip notice
+docker 导入本地镜像， 本地的镜像导入，使用 `docker import` 命令。
+镜像文件必须是 `tar.gz` 类型的文件。
+:::
+
+```go
 docker save -o rocketmq.tar rocketmq
 docker save rocketmq > rocketmq.tar
-说明：-o：指定保存的镜像的名字；
+```
+
+::: tip notice
+-o：指定保存的镜像的名字；
 rocketmq.tar：保存到本地的镜像名称；
 rocketmq：镜像名字
+:::
 
+```go
 docker load --input rocketmq.tar
 docker load < rocketmq.tar
-说明：docker load 将本地保存的镜像再次导入 docker 中
+```
 
-1. 镜像
-   docker images //查看镜像
+::: tip notice
+`docker load` 将本地保存的镜像再次导入 `docker` 中
+:::
 
-docker image -qa //查看所有镜像只显示 containerId
-说明：-a 显示所有
--q 只显示 id
+## 五丶 镜像
+- 查看镜像
 
-docker rmi -f containerId //删除镜像
+```go
+docker images
+```
 
-docker rmi -f $(docker images -qa) //删除全部镜像 6. 容器
-docker pull containerId //pull 镜像
+- 查看所有镜像只显示 containerId
 
+```go
+docker image -qa
+```
+::: tip notice
+`-a` 显示所有
+`-q` 只显示 `id`
+:::
+
+- 删除镜像
+
+```go
+docker rmi -f containerId
+```
+
+- 删除全部镜像
+
+```go
+docker rmi -f $(docker images -qa)
+```
+
+- pull 镜像并运行
+
+```go
+docker pull containerId
 docker run [参数] image
+```
 
-docker rmi -f $(docker ps -qa) //删除所有的容器
+- 删除所有的容器
 
-docker ps -qa|xargs docker rm //删除所有的容器
+```go
+docker rmi -f $(docker ps -qa)
+```
 
-docker start containerId //开启容器
+- 删除所有的容器
 
-docker stop containerId //停止容器
+```go
+docker ps -qa|xargs docker rm
+```
 
-docker restart containerId //重启容器
+- 开启容器
 
-docker kill containerId //杀死容器 7. 其他重要命令
-docker run -d centos /bin/bash -c “这里可以写 sheel 脚本" //后台启动容器
-问题：但是使用 docker ps 是看不到这个容器的 centos 已经停止了。容器使用后台运行，就必须要有一个前台进程，docker 发现没有应用，就会立即停止，比如说启动一个 nginx ,容器启动之后发现自己没有提供服务，就会立即停止，就是没有程序了
+```go
+docker start containerId
+```
 
-docker logs -f -t —tail 10 containerId //查看容器日志
+- 停止容器
 
-docker top containerId //查看容器的进程
+```go
+docker stop containerId
+```
 
-docker inspect containerId //查看容器的详细信息
+- 重启容器
 
-docker exec -it containerId /bin/bash //进入容器，-it 以交互模式进入
+```go
+docker restart containerId
+```
 
-docker attach containerId //也是进入容器
+- 杀死容器
 
-docker cp 容器:目录地址文件地址 宿主机地址 //拷贝容器里面的文件到宿主机
+```go
+docker kill containerId
+```
+- 其他重要命令
 
-docker run -it —rm nginx //用于测试,--rm 用完即删 8. wget 命令
-wget url 地址 //下载文件
+```go
+docker run -d centos /bin/bash -c “这里可以写 sheel 脚本"
+```
+::: tip notice
+后台启动容器, 但是使用 `docker ps` 是看不到这个容器的 `centos` 已经停止了。容器使用后台运行，就必须要有一个前台进程，`docker` 发现没有应用，就会立即停止，比如说启动一个 `nginx` ,容器启动之后发现自己没有提供服务，就会立即停止，就是没有程序了
+:::
 
-wget --continue https://www.lxlinux.net/linux-distro.iso //断点续传下载文件
+- 查看容器日志
 
-wget http://www.lxlinux.net --output-document newfile.html //如果你不想将下载的文件保存在本地，而只是想将其显示在标准输出（stdout）里
+```go
+docker logs -f -t —tail 10 containerId
+```
 
-wget http://www.lxlinux.net/file_{1..4}.txt //批量下载文件 9. 开启 docker remote api
+- 查看容器的进程
+
+```go 
+docker top containerId
+```
+
+- 查看容器的详细信息
+
+```go
+docker inspect containerId
+```
+
+- 进入容器，`-it` 以交互模式进入
+
+```go
+// 进入容器，有些系统是使用sh
+docker exec -it containerId /bin/bash
+
+也是进入容器
+docker attach containerId
+```
+
+::: tip notice
+`exec` 进入容器使用 `exit` 退出的时候，容器不会停止
+`attach` 进入容器使用 `exit` 退出的时候，容器会停止
+:::
+
+- 拷贝容器里面的文件到宿主机
+
+```go
+docker cp 容器:目录地址文件地址 宿主机地址
+```
+
+- 用于测试,--rm 用完即删
+
+```go
+docker run -it —rm nginx
+```
+
+- 开启 `docker remote api`
+
+```go
 vim /lib/systemd/system/docker.service
 
 ExecStart=/usr/bin/dockerd -H unix://var/run/docker.sock -H tcp://0.0.0.0:2375 -H fd:// --containerd=/run/containerd/containerd.sock
+```
 
-//重启
+- 重启
+
+```go
 systemctl daemon-reload
 systemctl restart docker.server
+```
 
-//查看
-sudo netstat -lntp | grep dockerd 9. 腾讯云服务器配置好秘钥还是不能登录，提示权限不足的问题
-sudo vi /etc/ssh/sshd_config
-//修改 PasswordAuthentication 为 yes
+- 查看
 
-sudo systemctl restart sshd 10. docker 相关问题
+```go
+sudo netstat -lntp | grep dockerd 
+```
+## 五丶docker 相关问题
 
-1.  问题：Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
-    原因：因为 docker 服务没有启动，所以在相应的/var/run/ 路径下找不到 docker 的进程。
-    解决方案：service docker start
+- Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
 
-2.  问题：Docker 容器启动报 WARNING: IPv4 forwarding is disabled. Networking will not work
-    原因：network 没有开启
-    解决方案：vim /etc/sysctl.conf 或者 vi /usr/lib/sysctl.d/00-system.conf
-    添加 net.ipv4.ip_forward=1
-    重启：systemctl restart network | centos8 -> nmcli c reload
-    sysctl -p //使配置立即生效
-3.  安装 composer
-    1.wget https://getcomposer.org/download/2.0.2/composer.phar -O /usr/local/bin/composer
+::: danger notice
+因为 docker 服务没有启动，所以在相应的/var/run/ 路径下找不到 docker 的进程。
+解决方案：service docker start
+:::
 
-2.chmod +x /usr/local/bin/composer 12. 清除当前机器关于远程服务器的缓存和公钥信息
+- Docker 容器启动报 WARNING: IPv4 forwarding is disabled. Networking will not work
 
-ssh-keygen -R "你的远程服务器 ip 地址"  
-13. docker 运行的日志可能会占满整个服务器
+::: danger notice
+`network` 没有开启
+解决方案：`vim /etc/sysctl.conf` 或者 `vi /usr/lib/sysctl.d/00-system.conf`
+添加： `net.ipv4.ip_forward=1`
+重启：`systemctl restart network | centos8 -> nmcli c reload`
+使配置立即生效： `sysctl -p`
+:::
+- 安装 composer
 
+```go
+// 下载composer包并且放在 /usr/local/bin/composer 下面
+wget https://getcomposer.org/download/2.0.2/composer.phar -O /usr/local/bin/composer
+
+// 给 `composer` 二进制包添加执行权限
+chmod +x /usr/local/bin/composer 
+```
+- docker 运行的日志可能会占满整个服务器
+
+::: danger notice
 1. 查询当前目录的磁盘占用情况
-   du -h —-max-depth=1
+   `du -h —-max-depth=1`
 
-2. 更改 docker-compose 的配置文件 yml
-   logging:
+2. 更改 `docker-compose` 的配置文件 `yml`
+
+```go
+logging:
    options:
    max-size: '1G'
    max-file: '5'
    driver: json-file
-3. 根据镜像名称或者容器名称删除
-4. 根据容器名称查询容器 ID 并删除
+```
+:::
 
-# 第一种写法
+- 根据容器名称查询容器 ID 并删除
 
+```go
+// 第一种写法
 docker stop `docker ps -a| grep test-project | awk '{print $1}' `
 docker rm `docker ps -a| grep test-project | awk '{print $1}' `
 
-# 第二种写法
+// 第二种写法
 
 docker stop `docker ps -aq --filter name=test-project`
 docker rm `docker ps -aq --filter name=test-project`
+```
 
-2. 根据镜像名称查询容器 ID 并删除
+- 根据镜像名称查询容器 ID 并删除
 
-# 第一种写法
+```go
+// 第一种写法
 
 docker stop `docker ps -a| grep ygsama/test-project:1.0.2 | awk '{print $1}' `
 docker rm `docker ps -a| grep ygsama/test-project:1.0.2 | awk '{print $1}' `
 
-# 第二种写法
+// 第二种写法
 
 docker stop `docker ps -aq --filter ancestor=ygsama/test-project:1.0.2`
 docker rm `docker ps -aq --filter ancestor=ygsama/test-project:1.0.2`
+```
 
-3. 根据镜像名称查询镜像 ID 并删除
+- 根据镜像名称查询镜像 ID 并删除
 
+```go
 docker images -q --filter reference=ygsama/test-project*:*
+
 docker image rm `docker images -q --filter reference=10.2.21.95:10001/treasury-brain*:*`
+```
 
-4. docker 更改 mysql 密码
+- docker 更改 mysql 密码
 
-修改普通用户，只改一个就好
+```go
+// 修改普通用户，只改一个就好
 SET PASSWORD FOR 'youruser' = PASSWORD('xxxxxxxx');
 
-修改 root 用户，改两个
+// 修改 root 用户，改两个
 SET PASSWORD FOR 'root' = PASSWORD('xxxxxxxxx');
 SET PASSWORD FOR 'root'@'localhost'=PASSWORD('xxxxxxxxx');
-
-15. 公众号开发账号
-    AppId: wx10985f95806c1795
-
-AppSecret: 6a6d901feef4cc5185f1139c88f3a724
-
-token: uYA5w7l7It34IZt7aI7l4wRzy6wAa067
-
-EncodingAESKey：jOvXT9XKodsH2A6dAMYgqmRsHOP5jbbCFqAe8jFesBm
+```

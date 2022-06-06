@@ -117,3 +117,19 @@ find /（查找范围） -name '查找关键字' -type d
 // 查找文件
 find /（查找范围） -name 查找关键字 -print
 ```
+
+## 十三丶wget命令
+
+```php
+//下载文件
+wget url 地址
+
+// 断点续传下载文件
+wget --continue https://www.lxlinux.net/linux-distro.iso
+
+//如果你不想将下载的文件保存在本地，而只是想将其显示在标准输出（stdout）里
+wget http://www.lxlinux.net --output-document newfile.html 
+
+//批量下载文件
+wget http://www.lxlinux.net/file_{1..4}.txt
+```

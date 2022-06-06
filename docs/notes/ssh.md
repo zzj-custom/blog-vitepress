@@ -20,3 +20,19 @@ ssh-keygen -t rsa -C "your_email@youremail.com"
 ssh -T git@github.com
 ssh -T git@gitee.com
 ```
+
+## 三丶腾讯云服务器配置好秘钥还是不能登录，提示权限不足的问题
+
+```php
+// 修改 PasswordAuthentication 为 yes
+sudo vi /etc/ssh/sshd_config
+
+// 重启sshd
+sudo systemctl restart sshd 
+```
+
+## 四丶清除当前机器关于远程服务器的缓存和公钥信息
+
+```php
+ssh-keygen -R "你的远程服务器 ip 地址" 
+```
