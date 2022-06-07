@@ -97,8 +97,16 @@ module.exports = {
         text: '纷销客',
         children: [
           {
-            text: '总结',
-            link: '/fxiaoke/index',
+            text: 'api分析',
+            link: '/fxiaoke/api-analysis/index',
+          },
+          {
+            text: '员工统计',
+            link: '/fxiaoke/analysis/org-employee-user',
+          },
+          {
+            text: '客户统计',
+            link: '/fxiaoke/analysis/customer',
           },
         ],
         sidebarDepth: 3,
