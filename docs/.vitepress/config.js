@@ -4,8 +4,9 @@ module.exports = {
     host: '0.0.0.0',
   },
   plugins: [
+    ['@vuepress/back-to-top'],
     [
-      '@vuepress/last-updated',
+      '@vuepress/plugin-last-updated',
       {
         transformer: (timestamp, lang) => {
           // 不要忘了安装 moment

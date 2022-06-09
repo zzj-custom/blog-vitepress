@@ -5,9 +5,7 @@ type: phpunit
 layout: tag
 ---
 
-<!-- {{$page.lastUpdated}} -->
-
-# {{ $frontmatter.title }}
+# {{ $frontmatter.title}}
 
 >&emsp;有时候测试的时候需要依赖很多其他的组件，外部的`mysql`,`redis`以及其他的服务，测试起来相当麻烦，如果在编写测试时无法使用（或选择不使用）实际的依赖组件（`DOC`），可以用测试替身来代替。测试替身不需要和真正的依赖组件有完全一样的的行为方式；它只需要提供和真正的组件同样的 `API` 即可，这样被测系统就会以为它是真正的组件！
 >&emsp;PHPUnit提供的 `createStub($type)`、`createMock($type)` 和 `getMockBuilder($type)` 方法可以在测试中用来自动生成对象，此对象可以充当任意指定原版类型（接口或类名）的测试替身。在任何预期或要求使用原版类的实例对象的上下文中都可以使用这个测试替身对象来代替。
@@ -705,3 +703,5 @@ class GoogleTest extends TestCase
 
 ```
 :::
+
+<el-backtop :right="100" :bottom="100" />
