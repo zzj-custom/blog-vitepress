@@ -1,5 +1,4 @@
 // const plugins = require("./plugins.js")
-
 module.exports = {
   server: {
     host: '0.0.0.0',
@@ -12,13 +11,14 @@ module.exports = {
           // 不要忘了安装 moment
           const moment = require('moment');
           moment.locale(lang);
+          console.log(moment(timestamp).fromNow());
           return moment(timestamp).fromNow();
         },
       },
     ],
   ],
   // 网站标题
-  title: '求贤若渴，求知若愚',
+  title: '求知若愚',
   // 网站描述
   description: '知识文章和随笔记录',
   // 打包目录
@@ -34,24 +34,37 @@ module.exports = {
       },
     ],
   ],
+  // markdown: {
+  //   lineNumbers: false, // 显示行号
+  //   html: true,
+  //   xhtmlOut: true,
+  //   breaks: true,
+  //   // options for markdown-it-anchor
+  //   anchor: { permalink: false },
+
+  //   // options for markdown-it-toc
+  //   toc: { includeLevel: [1, 2] },
+
+  //   // config: (md) => {
+  //   //   // use more markdown-it plugins!
+  //   //   md.use(require('markdown-it-xxx'))
+  //   // }
+  // },
   markdown: {
-    lineNumbers: false, // 显示行号
-    html: true,
-    xhtmlOut: true,
-    breaks: true,
-    // options for markdown-it-anchor
-    anchor: { permalink: false },
-
-    // options for markdown-it-toc
-    toc: { includeLevel: [1, 2] },
-
-    // config: (md) => {
-    //   // use more markdown-it plugins!
-    //   md.use(require('markdown-it-xxx'))
-    // }
+    config: (md) => {
+      const { demoBlockPlugin } = require('vitepress-theme-demoblock');
+      md.use(demoBlockPlugin);
+    },
   },
   // 主题配置
   themeConfig: {
+    algolia: {
+      appKey: '',
+      indexName: '',
+      searchParameters: {
+        faeFilters: ['tags:guide,api'],
+      },
+    },
     // 获取每个文件最后一次 git 提交的 UNIX 时间戳(ms)，同时它将以合适的日期格式显示在每一页的底部
     lastUpdated: '上次更新时间', // string | boolean
     // 启动页面丝滑滚动
@@ -101,12 +114,8 @@ module.exports = {
             link: '/fxiaoke/api-analysis/index',
           },
           {
-            text: '员工统计',
-            link: '/fxiaoke/analysis/org-employee-user',
-          },
-          {
-            text: '客户统计',
-            link: '/fxiaoke/analysis/customer',
+            text: '指标维度字段分析',
+            link: '/fxiaoke/analysis/index',
           },
         ],
         sidebarDepth: 3,
@@ -114,10 +123,10 @@ module.exports = {
       {
         text: '笔记',
         children: [
-          {
-            text: 'ssh',
-            link: '/notes/ssh',
-          },
+          // {
+          //   text: 'ssh',
+          //   link: '/notes/ssh',
+          // },
           {
             text: 'git',
             link: '/notes/git',
@@ -130,38 +139,38 @@ module.exports = {
             text: 'typescript',
             link: '/notes/typescript',
           },
-          {
-            text: 'vue',
-            link: '/notes/vue',
-          },
+          // {
+          //   text: 'vue',
+          //   link: '/notes/vue',
+          // },
           {
             text: 'docker',
             link: '/notes/docker',
           },
-          {
-            text: 'mysql',
-            link: '/notes/mysql',
-          },
-          {
-            text: 'redis',
-            link: '/notes/redis',
-          },
-          {
-            text: 'css',
-            link: '/notes/css',
-          },
-          {
-            text: 'go',
-            link: '/notes/go',
-          },
-          {
-            text: 'python',
-            link: '/notes/python',
-          },
-          {
-            text: 'jenkins',
-            link: '/notes/jenkins',
-          },
+          // {
+          //   text: 'mysql',
+          //   link: '/notes/mysql',
+          // },
+          // {
+          //   text: 'redis',
+          //   link: '/notes/redis',
+          // },
+          // {
+          //   text: 'css',
+          //   link: '/notes/css',
+          // },
+          // {
+          //   text: 'go',
+          //   link: '/notes/go',
+          // },
+          // {
+          //   text: 'python',
+          //   link: '/notes/python',
+          // },
+          // {
+          //   text: 'jenkins',
+          //   link: '/notes/jenkins',
+          // },
         ],
         sidebarDepth: 3,
       },
