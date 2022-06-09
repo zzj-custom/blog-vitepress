@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@vuepress/plugin-search": "^1.8.2",
+    "element-plus": "^2.2.5",
     "moment": "^2.29.3",
     "quick-plugin-md": "^0.2.6",
     "stylus": "^0.54.8",

@@ -13,9 +13,13 @@ import './custom.styl';
 // 导入插件的主题
 import { registerComponents } from './register-components.js';
 
+import ElementPlus from 'element-plus';
+import 'element-plus/dist/index.css';
+
 export default {
   ...Theme,
-  enhanceApp({ app }) {
+  enhanceApp({ app, router, siteData }) {
     registerComponents(app);
+    app.use(ElementPlus);
   },
 };
