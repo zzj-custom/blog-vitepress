@@ -1,5 +1,5 @@
 ---
-title: 纷享客
+title: Api分析
 ---
 
 # {{$frontmatter.title}}
@@ -9,12 +9,13 @@ title: 纷享客
 ## 一丶 创建报表
 
 - [接口请求地址](https://www.fxiaoke.com/FHH/EM1HBICRM/rptViewCreateController/getDomainTemplateResult?_fs_token=OM5bPJGuE3ajD3LcD2qqOMOmBM8oEJGjOZ8nPM4rCZLXEJOv&traceId=E-E.pft12301.1171-165338427909)
+
 - 请求参数
 
 | 字段 | 类型 | 说明 |
 | ---- | ---- | ---- |
 
-- 返回结果
+:::demo 返回结果
 
 ```json
 {
@@ -54,6 +55,7 @@ title: 纷享客
   }
 }
 ```
+:::
 
 ## 二丶获取对象结果
 
@@ -67,7 +69,7 @@ title: 纷享客
 |  isView   |  int   |                 3                 |
 | tableType |  int   |                                   |
 
-- 返回结果
+:::demo 返回结果
 
 ```json
 {
@@ -391,6 +393,7 @@ title: 纷享客
   }
 }
 ```
+:::
 
 - 字段解释说明
   1. Value 下面的 fieldInfoList 数组表示整个主题下面的字段 ![字段图](/fxiaoke/topic.png)
@@ -416,7 +419,7 @@ title: 纷享客
 |       id        | string | templateID |
 |     isView      |  int   |            |
 
--- 返回结果
+:::demo 返回结果
 
 ```json
 {
@@ -763,6 +766,7 @@ title: 纷享客
   }
 }
 ```
+:::
 
 ## 四丶新建统计图
 
@@ -777,7 +781,7 @@ title: 纷享客
 | _fs_token | string | 感觉上是一个 token 验证 |
 |  traceId  | string |        模板的 ID        |
 
-- 返回结果
+:::demo 返回结果
 
 ```json
 {
@@ -1338,6 +1342,7 @@ title: 纷享客
   }
 }
 ```
+:::
 
 - 字段分析
 
@@ -1362,7 +1367,7 @@ title: 纷享客
 |     id     | string  | 模板的 ID："BI_5d9efdaf37aa1b9ff04a4ce8" |
 |   isView   | boolean |                 是否展示                 |
 
-- 返回结果
+:::demo 返回结果
 
 ```json
 {
@@ -1492,6 +1497,7 @@ title: 纷享客
   }
 }
 ```
+:::
 
 - 字段分析
 
@@ -1518,7 +1524,7 @@ title: 纷享客
 |  isView   | boolean |                 是否展示                 |
 |   type    | string  |   类型(add -> 意思是请求的类型是求和)    |
 
-- 返回结果
+:::demo 返回结果
 
 ```json
 {
@@ -1884,6 +1890,7 @@ title: 纷享客
   }
 }
 ```
+:::
 
 - 字段分析
 

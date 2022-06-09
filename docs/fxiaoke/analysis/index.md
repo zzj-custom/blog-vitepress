@@ -397,5 +397,3 @@ title: 指标维度数据分析
 |     业务类型     |      record_type      |                   | ProductObj |             | dim_data  |      biz_product      |    产品     |   record_type    |             |                 |
 |    最后修改人    |   last_modified_by    | org_employee_user | ProductObj |             | dim_data  |      biz_product      |    产品     |     employee     |   user_id   |      name       |
 |   最后修改时间   |  last_modified_time   |                   | ProductObj |             | dim_data  |      biz_product      |    产品     |     datetime     |             |                 |
-
-

@@ -15,7 +15,7 @@ title: 基础测试
 
 ---
 
-> 示例：数组的简单操作
+:::demo 示例：数组的简单操作
 
 ```php
 <?php
@@ -58,6 +58,7 @@ class SimpleOperatorTest extends TestCase
 }
 
 ```
+:::
 
 ---
 
@@ -74,4 +75,5 @@ class SimpleOperatorTest extends TestCase
 ---
 
 > 示例： 用 `@depends` 标注来表示测试方法之间的依赖关系
+
 

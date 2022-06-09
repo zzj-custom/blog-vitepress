@@ -16,7 +16,7 @@ layout: tag
 
 ## 一丶`Stubs(桩件，替换掉被测试系统所依赖的组件)`
 
-> 示例： 想要上桩的类
+:::demo 示例：想要上桩的类
 
 ```php
 
@@ -40,8 +40,9 @@ class PlatformBarService
     }
 }
 ```
+:::
 
-> 示例：对`sendMessage`方法进行上桩
+:::demo 示例：对 `sendMessage` 方法进行上桩
 
 ```php
 
@@ -175,6 +176,7 @@ class OrderMessageTest extends TestCase
 }
 
 ```
+:::
 
 > 说明：添加`@test`可以表示这个方法是一个测试方法，添加`@depends serialOrderData`，表示改测试类的传参依赖于`depends`后面方法名的返回结果
 
@@ -212,7 +214,7 @@ class OrderMessageTest extends TestCase
 
 ---
 
-> 示例：模拟的`observer`类
+:::demo 示例：模拟的`observer`类
 
 ```php
 <?php
@@ -235,8 +237,9 @@ class Observer
 }
 
 ```
+:::
 
-> 示例：模拟的subject类
+:::demo 示例：模拟的 `subject` 类
 
 ```php
 <?php
@@ -285,8 +288,9 @@ class Subject
 }
 
 ```
+:::
 
-> 示例：对`subject`类进行模拟
+:::demo 示例：对`subject`类进行模拟
 
 ```php
 <?php
@@ -449,7 +453,7 @@ class SubjectTest extends TestCase
 }
 
 ```
-
+:::
 
 ## 三丶 `对特质（Trait）与抽象类进行模仿`
 
@@ -458,7 +462,7 @@ class SubjectTest extends TestCase
 
 ---
 
-> 示例：模拟的`abstract`类
+:::demo 示例：模拟的`abstract`类
 
 ```php
 <?php
@@ -485,8 +489,9 @@ abstract class AbstractClass
 }
 
 ```
+:::
 
-> 示例：模拟`trait`类
+:::demo 示例：模拟`trait`类
 
 ```php
 <?php
@@ -513,8 +518,9 @@ trait AbstractTrait
 }
 
 ```
+:::
 
-> 示例：对`trait`和`abstract`类进行模拟
+:::demo 示例：对`trait`和`abstract`类进行模拟
 
 ```php
 <?php
@@ -569,7 +575,7 @@ class TraitTestClass extends TestCase
 }
 
 ```
-
+:::
 
 ## 四丶 `Web 服务（Web Services）进行上桩或模仿`
 
@@ -579,7 +585,7 @@ class TraitTestClass extends TestCase
 
 ---
 
-> 示例：对`googleSearch`进行上桩
+:::demo 示例：对`googleSearch`进行上桩
 
 ```php
 <?php
@@ -669,9 +675,10 @@ class GoogleTest extends TestCase
 }
 
 ```
+:::
 
-
-```vue
+:::demo 插件
+```php
 
 '@vuepress/active-header-links', // 页面滚动时自动激活侧边栏链接的插件
     '@vuepress/back-to-top', // 返回顶部插件
@@ -697,3 +704,4 @@ class GoogleTest extends TestCase
     ],
 
 ```
+:::

@@ -22,6 +22,7 @@
   "devDependencies": {
     "@vuepress/plugin-active-header-links": "^1.9.7",
     "vitepress": "^0.22.3",
+    "markdown-it": "^12.0.4",
     "vitepress-theme-demoblock": "^1.4.2",
     "vuepress-plugin-go-top": "^1.0.4",
     "vuepress-plugin-meting": "^0.3.1"

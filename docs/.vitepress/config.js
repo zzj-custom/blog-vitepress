@@ -9,6 +9,7 @@ module.exports = {
       {
         transformer: (timestamp, lang) => {
           // 不要忘了安装 moment
+          console.log(22222);
           const moment = require('moment');
           moment.locale(lang);
           console.log(moment(timestamp).fromNow());
@@ -52,7 +53,8 @@ module.exports = {
   // },
   markdown: {
     config: (md) => {
-      const { demoBlockPlugin } = require('vitepress-theme-demoblock');
+      // const { demoBlockPlugin } = require('vitepress-theme-demoblock');
+      const { demoBlockPlugin } = require('./theme/theme');
       md.use(demoBlockPlugin);
     },
   },
