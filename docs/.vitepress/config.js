@@ -6,7 +6,7 @@ module.exports = {
   plugins: [
     ['@vuepress/back-to-top'],
     [
-      '@vuepress/plugin-last-updated',
+      '@vuepress/last-updated',
       {
         transformer: (timestamp, lang) => {
           // 不要忘了安装 moment
@@ -55,7 +55,7 @@ module.exports = {
   markdown: {
     config: (md) => {
       // const { demoBlockPlugin } = require('vitepress-theme-demoblock');
-      const { demoBlockPlugin } = require('./theme/theme');
+      const { demoBlockPlugin } = require('./theme/js/theme');
       md.use(demoBlockPlugin);
     },
   },
@@ -79,7 +79,7 @@ module.exports = {
     nav: [
       {
         text: '我的个人网站',
-        link: 'https://github.com/zzj-custom',
+        link: 'https://zzj-custom.github.io/blog-vitepress/',
       },
       {
         text: '掘金',
@@ -124,6 +124,20 @@ module.exports = {
         sidebarDepth: 3,
       },
       {
+        text: 'golang学习之路',
+        children: [
+          {
+            text: '基础知识',
+            link: '/golang/basic-knowledge',
+          },
+          {
+            text: '优秀文章',
+            link: '/golang/article/index',
+          },
+        ],
+        sidebarDepth: 3,
+      },
+      {
         text: '笔记',
         children: [
           // {
@@ -163,10 +177,6 @@ module.exports = {
           //   link: '/notes/css',
           // },
           // {
-          //   text: 'go',
-          //   link: '/notes/go',
-          // },
-          // {
           //   text: 'python',
           //   link: '/notes/python',
           // },
@@ -180,3 +190,5 @@ module.exports = {
     ],
   },
 };
+
+console.log();

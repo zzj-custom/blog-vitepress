@@ -133,3 +133,43 @@ wget http://www.lxlinux.net --output-document newfile.html
 //批量下载文件
 wget http://www.lxlinux.net/file_{1..4}.txt
 ```
+
+## 十四丶查看端口号使用情况
+
+:::demo 查看端口号
+
+```php
+
+// lsof命令
+
+// 查看8080端口占用
+lsof -i:8080
+// 显示开启文件abc.txt的进程
+lsof abc.txt
+// 显示abc进程现在打开的文件
+lsof -c abc
+// 列出进程号为1234的进程所打开的文件
+lsof -c -p 1234
+// 显示归属gid的进程情况
+lsof -g gid
+// 显示目录下被进程开启的文件
+lsof +d /usr/local/
+// 同上，但是会搜索目录下的目录，时间较长
+lsof +D /usr/local/
+// 显示使用fd为4的进程
+lsof -d 4
+// 显示所有打开的端口和UNIX domain文件
+lsof -i -U
+
+// netstat命令
+// -t (tcp) 仅显示tcp相关选项
+// -u (udp)仅显示udp相关选项
+// -n 拒绝显示别名，能显示数字的全部转化为数字
+// -l 仅列出在Listen(监听)的服务状态
+// -p 显示建立相关链接的程序名 （mac下面的netstat这个参数不能使用）
+netstat -tunlp | grep 端口号
+
+
+```
+
+:::

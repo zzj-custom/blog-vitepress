@@ -657,3 +657,9 @@ SET PASSWORD FOR 'youruser' = PASSWORD('xxxxxxxx');
 SET PASSWORD FOR 'root' = PASSWORD('xxxxxxxxx');
 SET PASSWORD FOR 'root'@'localhost'=PASSWORD('xxxxxxxxx');
 ```
+
+- 查看docker内存使用情况
+  
+```go
+docker system df -v
+```

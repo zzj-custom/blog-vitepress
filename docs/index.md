@@ -15,4 +15,3 @@ features:
     details: 求知若愚，在人生中学习的一些知识。
 footer: MIT Licensed | Copyright © 2021-present 诗和远方
 ---
-<!-- location: https://zzj-custom.github.io/blog-vitepress/ -->
