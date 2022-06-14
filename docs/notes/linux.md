@@ -171,5 +171,17 @@ netstat -tunlp | grep 端口号
 
 
 ```
+:::
 
+## 十五丶Mac删除（添加）路由，网关
+
+:::demo 示例
+```php
+// route -v delete -net 10.10.12.0（某网段） -gateway 10.10.12.1（某网关）
+sudo route -v delete -net 47.99.180/24  -gateway 192.168.150.173
+
+sudo route -n add -net 192.168.0.0（需进入的网段） -netmask 255.255.255.0 （掩码）192.168.5.254 （进该网段的网关）
+
+// 然后可以使用netstat -nr查看
+```
 :::
