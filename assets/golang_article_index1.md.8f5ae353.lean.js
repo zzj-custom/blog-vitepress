@@ -1,0 +1,1 @@
+import{_ as n,c as t,o as s,d as a}from"./app.b68c4d44.js";const q='{"title":"\u751F\u4EA7\u8005\u6D88\u8D39\u8005\u95EE\u9898","description":"","frontmatter":{},"headers":[],"relativePath":"golang/article/index1.md"}',o={},p=a("",12),e=[p];function c(u,r,i,l,m,k){return s(),t("div",null,e)}var g=n(o,[["render",c]]);export{q as __pageData,g as default};
